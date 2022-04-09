@@ -6,7 +6,7 @@ class Person < Nameable
     @id = Random.rand(1..50)
     @name = name
     @age = age
-    @rental = []
+    @rentals = []
     @parent_permission = parent_permission
     super()
   end
@@ -15,7 +15,7 @@ class Person < Nameable
   attr_reader :id
 
   # accessor get and set method
-  attr_accessor :name, :age, :rental
+  attr_accessor :name, :age, :rentals
 
   def add_rental(date, book)
     Rental.new(date, self, book)

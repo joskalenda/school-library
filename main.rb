@@ -7,7 +7,7 @@ end
 
 def list_of_options
   puts
-  puts 'Choose an option by entering a number: '
+  puts 'Please enter a numberto choose an option: '
   puts '1 - List all books'
   puts '2 - List all people'
   puts '3 - Create a person'

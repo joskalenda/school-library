@@ -13,7 +13,7 @@ class App
   end
 
   def start_console
-    puts 'Welcome to my School Library!'
+    puts 'Hello, welcome to Jos school Library!'
     until list_of_options
       input = gets.chomp
       if input == '7'
