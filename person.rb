@@ -6,7 +6,7 @@ class Person < Nameable
     @id = Random.rand(1..50)
     @name = name
     @age = age
-    @rental = []
+    @rentals = []
     @parent_permission = parent_permission
     super()
   end
@@ -15,7 +15,7 @@ class Person < Nameable
   attr_reader :id
 
   # accessor get and set method
-  attr_accessor :name, :age, :rental
+  attr_accessor :name, :age, :rentals
 
   def add_rental(date, book)
     Rental.new(date, self, book)
@@ -36,8 +36,8 @@ class Person < Nameable
   end
 end
 person = Person.new(22, 'maximilianus')
-p person.correct_name
+person.correct_name
 capitalized_person = CapitalizeDecore.new(person)
-p capitalized_person.correct_name
+capitalized_person.correct_name
 capitalized_trimmed_person = TrimmerDecore.new(capitalized_person)
-p capitalized_trimmed_person.correct_name
+capitalized_trimmed_person.correct_name
