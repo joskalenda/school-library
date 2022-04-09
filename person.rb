@@ -1,10 +1,12 @@
 require './decore'
+require './rental'
 
 class Person < Nameable
   def initialize(age, name = 'unkown', parent_permission: true)
     @id = Random.rand(1..50)
     @name = name
     @age = age
+    @rental = []
     @parent_permission = parent_permission
     super()
   end
@@ -13,8 +15,11 @@ class Person < Nameable
   attr_reader :id
 
   # accessor get and set method
-  attr_accessor :name
-  attr_accessor :age
+  attr_accessor :name, :age, :rental
+
+  def add_rental(date, book)
+    Rental.new(date, self, book)
+  end
 
   def can_use_services?
     return true if _of_age? || parent_permission
