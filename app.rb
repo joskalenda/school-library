@@ -4,9 +4,12 @@ require './teacher'
 require './book'
 require './classroom'
 require './rental'
+require './print_script'
 
 class App
+  # < PrintScript
   def initialize
+    # super
     @books = []
     @persons = []
     @rentals = []
@@ -84,7 +87,7 @@ class App
     puts 'Teacher created successfully'
   end
 
-  def create_book()
+  def create_book
     puts 'Create a new book'
     print 'Enter title: '
     title = gets.chomp
