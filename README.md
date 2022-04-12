@@ -49,13 +49,21 @@ $ cd oop-school-library
 $ ruby filename.rb
 ```
 
-## Author
+## Author 1
 
 👤 **Jos Kalenda**
 
 - GitHub: [@Jos](https://github.com/joskalenda)
 - Twitter: [@Jos](https://twitter.com/joskalenda)
 - LinkedIn: [@Jos](https://www.linkedin.com/in/jos-kalenda/)
+
+## Author
+
+👤 **Billions**
+
+- GitHub: [@Billions](https://github.com/)
+- Twitter: [@Billions](https://twitter.com/)
+- LinkedIn: [@Billions](https://www.linkedin.com/)
 
 ## 🤝 Contributing
 
