@@ -8,7 +8,7 @@ require './print_script'
 
 class App < PrintScript
   def initialize
-     super
+    super
     @books = []
     @persons = []
     @rentals = []
