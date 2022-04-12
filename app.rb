@@ -6,10 +6,9 @@ require './classroom'
 require './rental'
 require './print_script'
 
-class App
-  # < PrintScript
+class App < PrintScript
   def initialize
-    # super
+     super
     @books = []
     @persons = []
     @rentals = []
