@@ -1,6 +1,10 @@
+require 'json'
+require './savedata'
+
 class CreatePeople
   def initialize
-    @books = []
+    @iomanager = IOmanager.new
+    @books = @iomanager.fetch_book_data
     @persons = []
     @rentals = []
   end
@@ -60,6 +64,7 @@ class CreatePeople
     book = Book.new(title, author)
     @books.push(book)
     puts "Book #{title} created successfully."
+    # save_book
   end
 
   def create_rental
@@ -82,5 +87,9 @@ class CreatePeople
     @rentals << rental
 
     puts 'Rental created successfully'
+  end
+
+  def json_runner
+    @iomanager.save_book(@books)
   end
 end
