@@ -12,6 +12,7 @@ class PrintScript < CreatePeople
 
       option input
     end
+    json_runner
   end
 
   def list_of_options
