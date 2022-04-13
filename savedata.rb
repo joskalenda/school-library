@@ -24,4 +24,16 @@ class IOmanager
     end
     array
   end
+
+  def save_people(persons)
+    file = File.open('./people.json', 'a')
+    person_data = persons.map do |person, _index, _id|
+      if person.instance_of?(Teacher)
+        { occupation: 'Teacher', name: person.name, age: person.age, specialization: person.specialization }
+      else
+        { occupation: 'Student', name: person.name, age: person.age, parent_permission: person.parent_permission }
+      end
+    end
+    file.puts(JSON.generate(person_data))
+  end
 end

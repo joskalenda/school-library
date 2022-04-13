@@ -36,7 +36,7 @@ class CreatePeople
       @persons << student
       puts 'Student doesnt have parent permission, cant rent books'
     when 'y'
-      student = Student.new(age, 'classroom', name, parent_permission: false)
+      student = Student.new(age, 'classroom', name, parent_permission: true)
       @persons << student
       puts 'Student created successfully'
     end
@@ -91,5 +91,6 @@ class CreatePeople
 
   def json_runner
     @iomanager.save_book(@books)
+    @iomanager.save_people(@persons)
   end
 end
