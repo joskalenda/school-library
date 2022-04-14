@@ -50,7 +50,6 @@ class IOmanager
         case person['occupation']
         when 'Teacher'
           teacher = Teacher.new(person['age'], person['specialization'], person['name'], person['id'].to_i)
-          p teacher
           array.push(teacher)
 
         when 'Student'
@@ -91,7 +90,6 @@ class IOmanager
       array
     else
       parsed_data = JSON.parse(file)
-      p parsed_data
       parsed_data.map do |data|
         book = Book.new(data['book']['Title'], data['book']['Author'])
         # person = nil
