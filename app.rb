@@ -1,3 +1,4 @@
+require 'json'
 require './person'
 require './student'
 require './teacher'
@@ -9,9 +10,10 @@ require './print_script'
 class App < PrintScript
   def initialize
     super
-    @books = []
-    @persons = []
-    @rentals = []
+    @iomanager = IOmanager.new
+    @books = @iomanager.fetch_book_data
+    @persons = @iomanager.fetch_person_data
+    @rentals = @iomanager.fetch_rental_data
   end
 
   def list_all_books
@@ -36,8 +38,14 @@ class App < PrintScript
         puts "Peson: #{rental.person.name}  Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
       else
         puts
-        puts 'No records where found for the given ID'
+        puts '...'
       end
     end
+  end
+
+  def json_runner
+    @iomanager.save_book(@books)
+    @iomanager.save_people(@persons)
+    @iomanager.save_rental(@rentals)
   end
 end
