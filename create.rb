@@ -3,8 +3,7 @@ require './savedata'
 
 class CreatePeople
   def initialize
-    @iomanager = IOmanager.new
-    @books = @iomanager.fetch_book_data
+    @books = []
     @persons = []
     @rentals = []
   end
@@ -86,11 +85,5 @@ class CreatePeople
     @rentals << rental
 
     puts 'Rental created successfully'
-  end
-
-  def json_runner
-    @iomanager.save_book(@books)
-    @iomanager.save_people(@persons)
-    @iomanager.save_rental(@rentals)
   end
 end

@@ -9,7 +9,8 @@ require './print_script'
 class App < PrintScript
   def initialize
     super
-    @books = []
+    @iomanager = IOmanager.new
+    @books = @iomanager.fetch_book_data
     @persons = []
     @rentals = []
   end
@@ -39,5 +40,11 @@ class App < PrintScript
         puts 'No records where found for the given ID'
       end
     end
+  end
+
+  def json_runner
+    @iomanager.save_book(@books)
+    # @iomanager.save_people(@persons)
+    # @iomanager.save_rental(@rentals)
   end
 end
