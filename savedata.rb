@@ -1,4 +1,4 @@
-# require 'json'
+require 'json'
 
 class IOmanager
   def save_book(books)
@@ -27,7 +27,7 @@ class IOmanager
 
   def save_people(persons)
     file = File.open('./people.json', 'a')
-    person_data = persons.map do |person, _index, _id|
+    person_data = persons.map do |person|
       if person.instance_of?(Teacher)
         { occupation: 'Teacher', name: person.name, age: person.age, specialization: person.specialization }
       else
@@ -36,4 +36,13 @@ class IOmanager
     end
     file.puts(JSON.generate(person_data))
   end
+
+  def save_rental(rentals)
+    file = File.open('./rental.json', 'a')
+    rentals_data = rentals.map do |rental|
+      { created_on: rental.date, book: { Title: rental.book.title, Author: rental.book.author }, p_Id: rental.person.id }
+    end
+    file.puts(JSON.generate(rentals_data))
+  end
 end
+
