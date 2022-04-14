@@ -64,7 +64,6 @@ class CreatePeople
     book = Book.new(title, author)
     @books.push(book)
     puts "Book #{title} created successfully."
-    # save_book
   end
 
   def create_rental
@@ -92,5 +91,6 @@ class CreatePeople
   def json_runner
     @iomanager.save_book(@books)
     @iomanager.save_people(@persons)
+    @iomanager.save_rental(@rentals)
   end
 end

@@ -1,4 +1,5 @@
 require './create'
+require 'json'
 
 class PrintScript < CreatePeople
   def run_app
@@ -6,7 +7,7 @@ class PrintScript < CreatePeople
     until list_of_options
       input = gets.chomp
       if input == '7'
-        puts 'Thank You for using my School Library!'
+        puts 'Thank You for using Jos school Library!'
         break
       end
 
