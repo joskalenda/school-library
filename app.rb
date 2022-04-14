@@ -38,7 +38,7 @@ class App < PrintScript
         puts "Peson: #{rental.person.name}  Date: #{rental.date}, Book: '#{rental.book.title}' by #{rental.book.author}"
       else
         puts
-        puts 'No records where found for the given ID'
+        puts '...'
       end
     end
   end
