@@ -1,3 +1,4 @@
+require 'json'
 require './person'
 require './student'
 require './teacher'
@@ -12,7 +13,7 @@ class App < PrintScript
     @iomanager = IOmanager.new
     @books = @iomanager.fetch_book_data
     @persons = @iomanager.fetch_person_data
-    @rentals = []
+    @rentals = @iomanager.fetch_rental_data
   end
 
   def list_all_books
@@ -45,6 +46,6 @@ class App < PrintScript
   def json_runner
     @iomanager.save_book(@books)
     @iomanager.save_people(@persons)
-    # @iomanager.save_rental(@rentals)
+    @iomanager.save_rental(@rentals)
   end
 end

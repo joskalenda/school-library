@@ -6,8 +6,8 @@ class Person < Nameable
   attr_accessor :name, :age, :rentals, :parent_permission
 
   # rubocop:disable Style/OptionalBooleanParameter
-  def initialize(age, name = 'unkown', parent_permission = true)
-    @id = Random.rand(1..50)
+  def initialize(age, name = 'unkown', parent_permission = true, id = nil)
+    @id = id || Random.rand(1..50)
     @name = name
     @age = age
     @rentals = []
