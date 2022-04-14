@@ -11,7 +11,7 @@ class App < PrintScript
     super
     @iomanager = IOmanager.new
     @books = @iomanager.fetch_book_data
-    @persons = []
+    @persons = @iomanager.fetch_person_data
     @rentals = []
   end
 
@@ -44,7 +44,7 @@ class App < PrintScript
 
   def json_runner
     @iomanager.save_book(@books)
-    # @iomanager.save_people(@persons)
+    @iomanager.save_people(@persons)
     # @iomanager.save_rental(@rentals)
   end
 end

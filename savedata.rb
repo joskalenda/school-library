@@ -25,24 +25,45 @@ class IOmanager
     array
   end
 
-  # def save_people(persons)
-  #   file = File.open('./people.json', 'a')
-  #   person_data = persons.map do |person|
-  #     if person.instance_of?(Teacher)
-  #       { occupation: 'Teacher', name: person.name, age: person.age, specialization: person.specialization }
-  #     else
-  #       { occupation: 'Student', name: person.name, age: person.age, parent_permission: person.parent_permission }
-  #     end
-  #   end
-  #   file.puts(JSON.generate(person_data))
-  # end
+  def save_people(persons)
+    file = File.open('./people.json', 'w')
+    person_data = persons.map do |person|
+      if person.instance_of?(Teacher)
+        { occupation: 'Teacher', name: person.name, age: person.age, specialization: person.specialization }
+      else
+        { occupation: 'Student', name: person.name, age: person.age, parent_permission: person.parent_permission }
+      end
+    end
+    file.puts(JSON.generate(person_data))
+  end
 
-  # def save_rental(rentals)
-  #   file = File.open('./rental.json', 'a')
-  #   rentals_data = rentals.map do |rental|
-  #     { created_on: rental.date, book: { Title: rental.book.title, Author: rental.book.author }, Id: rental.person.id }
-  #   end
-  #   file.puts(JSON.generate(rentals_data))
-  # end
+  def fetch_person_data
+    file = File.read('./people.json')
+    array = []
+    if file.empty?
+      array
+    else
+      parsed_data = JSON.parse(file)
+      parsed_data.map do |person|
+        case person['occupation']
+        when 'Teacher'
+          teacher = Teacher.new(person['specialization'], person['age'], person['name'])
+          array.push(teacher)
+
+        when 'Student'
+          student = Student.new(person['age'], person['permission'], person['name'])
+          array.push(student)
+        end
+      end
+    end
+    array
+  end
+
+  def save_rental(rentals)
+    file = File.open('./rental.json', 'a')
+    rentals_data = rentals.map do |rental|
+      { created_on: rental.date, book: { Title: rental.book.title, Author: rental.book.author }, Id: rental.person.id }
+    end
+    file.puts(JSON.generate(rentals_data))
+  end
 end
-
