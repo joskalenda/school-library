@@ -18,7 +18,6 @@ describe Student do
   it 'Check if attributes values matches' do
     student = Student.new(1, 'Microverse', 'Jos', true)
     expect(student).to have_attributes(name: 'Jos', age: 1, classroom: 'Microverse', parent_permission: true)
-
   end
   
   it 'Test student class ' do
