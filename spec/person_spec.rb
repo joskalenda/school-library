@@ -1,5 +1,4 @@
 require './person'
-require './teacher'
 
 describe Person do
     it 'Person class instance' do
@@ -13,8 +12,8 @@ describe Person do
       expect(person).to have_attributes(name: 'Jos', age: 1, parent_permission: true)
     end
 
-    it 'Check if can run services method runs fine' do  
-      teacher = Teacher.new(1, name: 'Jos', specialization: 'Developer')
-      expect(teacher.can_use_services?).to be(true)
+    it "Check if correct name method is correct" do
+      person1 = Person.new(1, 'Microverse', true)
+      expect(person1.correct_name).to eql 'Microverse'
     end
 end
