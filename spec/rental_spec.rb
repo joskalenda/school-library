@@ -24,7 +24,7 @@ describe Rental do
     expect(rental.book.title).to eql('Rentalcheck')
     expect(rental.book.author).to eql('Testing')
   end
-  
+
   it 'Check if add_rental method returns a rental and adds its to the book' do
     book = Book.new('Title', 'Author')
     person = Person.new(1, 'Jos')

@@ -1,7 +1,6 @@
 require './classroom'
 
 describe Classroom do
-
   it 'Classroom class instance' do
     classroom = Classroom.new('classroom')
     expect(classroom).to be_instance_of(Classroom)
@@ -22,11 +21,8 @@ describe Classroom do
     expect(english_class.students[0].name).to eq 'Nuri'
   end
 
-
   it 'Chech if class attribute matches' do
     classroom = Classroom.new('classroom')
     expect(classroom).to have_attributes(label: 'classroom')
   end
-
-
 end

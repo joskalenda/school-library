@@ -1,7 +1,6 @@
 require './book'
 
 describe Book do
-
   it 'Book class instance' do
     title = 'Ruby made simple'
     author = 'Topaz'

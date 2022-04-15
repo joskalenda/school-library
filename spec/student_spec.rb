@@ -19,7 +19,7 @@ describe Student do
     student = Student.new(1, 'Microverse', 'Jos', true)
     expect(student).to have_attributes(name: 'Jos', age: 1, classroom: 'Microverse', parent_permission: true)
   end
-  
+
   it 'Test student class ' do
     student = Student.new(1, 'Microverse', 'Jos', true)
     microverse = Classroom.new('Web Dev')
@@ -28,4 +28,3 @@ describe Student do
     expect(microverse.students.count).to eq 1
   end
 end
-
