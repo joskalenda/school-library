@@ -4,7 +4,7 @@
 # school-library
 
 
-- An Object Oriented console based app for a school library with features to add new students, teachers, new books, save records of who borrowed a book and when the book was borrowed. Built with Ruby.
+> An Object Oriented console based app for a school library with features to add new students, teachers, new books, save records of who borrowed a book and when the book was borrowed. Built with Ruby.
 
 Additional description about the project and its features.
 
